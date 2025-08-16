@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shutter fly Connect</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Allura&family=Great+Vibes&family=Lobster&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+
+    <style>
+        /* Custom styles for the website */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0a0a0a;
+            color: #f0f0f0;
+            overflow-x: hidden;
+        }
+
+        /* Styling for the 3D background canvas */
+        #bg-canvas-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            z-index: -1; /* Place it behind all content */
+        }
+
+        /* Glassmorphism effect for the header */
+        .glass-header {
+            background: rgba(10, 10, 10, 0.6);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Animated card styling */
+        .collaboration-card, .testimonial-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+        }
+
+        .collaboration-card:hover, .testimonial-card:hover {
+            transform: translateY(-10px) scale(1.03);
+            background: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Custom scrollbar for a modern look */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0a0a0a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <div id="bg-canvas-container"></div>
+
+    <header class="glass-header fixed top-0 left-0 right-0 z-50">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <a href="#home" class="flex items-center space-x-2">
+                    <img src="Shutterflylogo.jpeg" alt="Shutterfly Logo" class="w-10 h-10 rounded-full">
+                    <span class="text-3xl font-bold text-white" style="font-family: 'Great Vibes', cursive; letter-spacing: 0.1em;">
+                        Shutter fly Connect
+                    </span>
+                </a>
+            </div>
+            <div class="hidden md:flex space-x-8">
+                <a href="#about" class="text-gray-300 hover:text-white transition-colors duration-300">About</a>
+                <a href="#partnerships" class="text-gray-300 hover:text-white transition-colors duration-300">Partnerships</a>
+                <a href="#howitworks" class="text-gray-300 hover:text-white transition-colors duration-300">Process</a>
+                <a href="#contact" class="text-gray-300 hover:text-white transition-colors duration-300">Contact</a>
+            </div>
+            <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </nav>
+        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4">
+            <a href="#about" class="block py-2 text-gray-300 hover:text-white">About</a>
+            <a href="#partnerships" class="block py-2 text-gray-300 hover:text-white">Partnerships</a>
+            <a href="#howitworks" class="block py-2 text-gray-300 hover:text-white">Process</a>
+            <a href="#contact" class="block py-2 text-gray-300 hover:text-white">Contact</a>
+        </div>
+    </header>
+
+    <main>
+        <section id="home" class="h-screen flex items-center justify-center text-center relative">
+            <div class="z-10">
+                <h1 class="text-5xl md:text-8xl font-black text-white uppercase tracking-tighter leading-tight">
+                    Shutterfly<br>Connect.
+                </h1>
+                <p class="text-gray-300 mt-4 max-w-lg mx-auto">
+                    Collaborate. Create. Elevate.
+                </p>
+                <a href="#howitworks" class="inline-block mt-8 px-8 py-3 text-lg font-semibold text-white bg-indigo-600 rounded-full hover:bg-indigo-700 transition-colors duration-300">
+                    Partner With Us
+                </a>
+            </div>
+        </section>
+
+        <section id="about" class="py-20 md:py-32 bg-black">
+            <div class="container mx-auto px-6">
+                <div class="max-w-4xl mx-auto text-center">
+                    <h2 class="text-3xl md:text-5xl font-bold text-white mb-6">About Shutterfly Connect</h2>
+                    <div class="w-24 h-1 bg-indigo-500 mx-auto mb-10 rounded-full"></div>
+                    <p class="text-lg md:text-xl text-gray-400 leading-relaxed">
+                        Shutterfly Connect is our initiative to bridge creative communities. We partner with societies, clubs, and organizations to co-create compelling media, from event photography and videography to promotional campaigns and documentaries. Our goal is to amplify your story, providing professional media coverage and artistic vision to help your events and projects shine.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="partnerships" class="py-20 md:py-32 bg-black">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl md:text-5xl font-bold text-white mb-16">Our Collaborations</h2>
+                <div class="flex flex-col md:flex-row justify-center gap-10">
+                    
+                    <div class="collaboration-card rounded-2xl p-6 flex-1 max-w-sm">
+                        <img src="Hackarena.png" alt="Tech Fest Collaboration" class="rounded-lg mb-4">
+                        <h4 class="text-xl font-bold text-white mb-2">Hack Arena 2025</h4>
+                        <p class="text-gray-400 mb-4">Collaborated with Ignite Room to cover their event "Hack Arena 2025". Captured the event in the lens of our cameras documenting the thrilling energy of the hackathon</p>
+                    </div>
+
+                    <div class="collaboration-card rounded-2xl p-6 flex-1 max-w-sm">
+                        <img src="builderspace.jpeg" alt="Drama Society Collaboration" class="rounded-lg mb-4">
+                        <h4 class="text-xl font-bold text-white mb-2">Builder's Space</h4>
+                        <p class="text-gray-400 mb-4">Worked with Builder's Space to cover their irl event held at IIID.Conducted interviews and documented the event needling a lasting digital memory</p>
+                    </div>
+
+                    <div class="collaboration-card rounded-2xl p-6 flex-1 max-w-sm">
+                        <img src="Rubaru.png" alt="Music Club Collaboration" class="rounded-lg mb-4" style="height: 200px;">
+                        <h4 class="text-xl font-bold text-white mb-2">Rubaru'25</h4>
+                        <p class="text-gray-400 mb-4">Provided full videography and photography for the Flamingo's annual event Rubaru, creating a memorable documentation of the event.</p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="howitworks" class="py-20 md:py-32">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl md:text-5xl font-bold text-center text-white mb-16">How It Works</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                    
+                    <div class="collaboration-card rounded-2xl p-8 flex flex-col items-center text-center">
+                        <div class="text-5xl mb-4"></div>
+                        <h3 class="text-2xl font-bold text-white mb-2">1. Pitch Your Idea</h3>
+                        <p class="text-gray-400">Reach out to us with your project idea, event details, and media needs. The more information, the better!</p>
+                    </div>
+
+                    <div class="collaboration-card rounded-2xl p-8 flex flex-col items-center text-center">
+                        <div class="text-5xl mb-4"></div>
+                        <h3 class="text-2xl font-bold text-white mb-2">2. We Plan & Prepare</h3>
+                        <p class="text-gray-400">Our team will meet with you to understand your vision, discuss logistics, and create a custom media plan tailored to your needs.</p>
+                    </div>
+
+                    <div class="collaboration-card rounded-2xl p-8 flex flex-col items-center text-center">
+                        <div class="text-5xl mb-4"></div>
+                        <h3 class="text-2xl font-bold text-white mb-2">3. Let's Create!</h3>
+                        <p class="text-gray-400">Our crew will execute the plan, capturing your event and producing high-quality media content you'll be proud to share.</p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="testimonials" class="py-20 md:py-32 bg-black">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl md:text-5xl font-bold text-white mb-16">What Our Partners Say</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-4xl mx-auto">
+                    
+                    <div class="testimonial-card rounded-2xl p-8 text-center">
+                        <p class="text-gray-300 italic mb-4">"Working with Shutterfly was an absolute game-changer for our event. The photos and video they produced captured the energy perfectly and were incredibly professional. Highly recommend!"</p>
+                        
+                    </div>
+
+                    <div class="testimonial-card rounded-2xl p-8 text-center">
+                        <p class="text-gray-300 italic mb-4">"The team was so easy to work with and truly understood our vision. The highlight reel for our annual fest was a huge hit on social media and helped us boost engagement."</p>
+                       
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="py-20 md:py-32">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl md:text-5xl font-bold text-white mb-6">Let's Connect</h2>
+                <p class="text-gray-400 mb-10 max-w-2xl mx-auto">Ready to collaborate? Reach out to us to start a conversation about your project or event.</p>
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=shutterflyconnect@gmail.com" class="inline-block mt-8 px-8 py-3 text-lg font-semibold text-white bg-indigo-600 rounded-full hover:bg-indigo-700 transition-colors duration-300" style=" margin: 0px 0px 30px 0px">
+                    Propose a Collaboration
+                </a>
+                <div class="flex justify-center space-x-6">
+                    <a href="https://www.instagram.com/shutter.fly._/" class="text-gray-400 hover:text-white transition-colors duration-300">Instagram</a>
+                    <a href="https://www.linkedin.com/company/gtb4cec-shutter-fly/posts/?feedView=all" class="text-gray-400 hover:text-white transition-colors duration-300">Linkedin</a>
+                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=shutterflyconnect@gmail.com" class="text-gray-400 hover:text-white transition-colors duration-300">Email</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-black py-8">
+        <div class="container mx-auto px-6 text-center text-gray-500">
+            &copy; 2025 Shutterfly-Media Community. All Rights Reserved.
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+    <script type="module">
+        // --- Mobile Menu Toggle ---
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // --- Three.js Background Animation ---
+        let scene, camera, renderer, stars;
+        let mouseX = 0, mouseY = 0;
+        const windowHalfX = window.innerWidth / 2;
+        const windowHalfY = window.innerHeight / 2;
+
+        function init() {
+            // Scene setup
+            scene = new THREE.Scene();
+            
+            // Camera setup
+            camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 1, 1000);
+            camera.position.z = 1;
+            camera.rotation.x = Math.PI / 2;
+
+            // Renderer setup
+            const canvasContainer = document.getElementById('bg-canvas-container');
+            renderer = new THREE.WebGLRenderer({
+                canvas: document.createElement('canvas'),
+                alpha: true // Transparent background
+            });
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            canvasContainer.appendChild(renderer.domElement);
+
+            // Create starfield/particles
+            const starGeometry = new THREE.BufferGeometry();
+            const starVertices = [];
+            for (let i = 0; i < 6000; i++) {
+                const x = (Math.random() - 0.5) * 2000;
+                const y = (Math.random() - 0.5) * 2000;
+                const z = (Math.random() - 0.5) * 2000;
+                starVertices.push(x, y, z);
+            }
+            starGeometry.setAttribute('position', new THREE.Float32BufferAttribute(starVertices, 3));
+            
+            const starMaterial = new THREE.PointsMaterial({
+                color: 0xaaaaaa,
+                size: 0.7
+            });
+
+            stars = new THREE.Points(starGeometry, starMaterial);
+            scene.add(stars);
+
+            // Event Listeners
+            document.addEventListener('mousemove', onMouseMove, false);
+            window.addEventListener('resize', onWindowResize, false);
+        }
+
+        function onWindowResize() {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        }
+
+        function onMouseMove(event) {
+            mouseX = event.clientX - windowHalfX;
+            mouseY = event.clientY - windowHalfY;
+        }
+
+        function animate() {
+            requestAnimationFrame(animate);
+
+            // General constant animation (slow rotation/movement)
+            stars.rotation.z -= 0.0001;
+            
+            // Cursor-based camera movement (subtle effect)
+            camera.position.x += (mouseX * 0.00005 - camera.position.x) * 0.05;
+            camera.position.y += (-mouseY * 0.00005 - camera.position.y) * 0.05;
+            camera.lookAt(scene.position);
+
+            renderer.render(scene, camera);
+        }
+
+        // Initialize and start the animation
+        init();
+        animate();
+    </script>
+</body>
+</html>
+```
