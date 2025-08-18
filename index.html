@@ -69,6 +69,31 @@
         ::-webkit-scrollbar-thumb:hover {
             background: #555;
         }
+
+        .slideshow-track {
+            /* We have 9 original images + 9 duplicates = 18 total. 
+               This makes the track 18/3 = 6 times wider than the container. */
+            width: calc(300px * 18); 
+            animation: scroll 40s linear infinite;
+        }
+
+        .slideshow-container:hover .slideshow-track {
+            animation-play-state: paused;
+        }
+
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                /* Move left by the width of the 9 original images */
+                transform: translateX(calc(-300px * 9));
+            }
+        }
+
+        .slide {
+            width: 300px;
+        }
     </style>
 </head>
 <body class="antialiased">
@@ -157,6 +182,40 @@
                         <a href="Connect.html" class="text-indigo-400 hover:text-indigo-300 transition-colors duration-300">Explore More &rarr;</a>
                     </div>
 
+                </div>
+            </div>
+        </section>
+
+        <section id="work-gallery" class="py-20 md:py-32 bg-black">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl md:text-5xl font-bold text-white mb-16">Our Work</h2>
+                
+                <div class="slideshow-container w-full max-w-5xl mx-auto overflow-hidden relative">
+                    <div class="slideshow-track flex">
+                        <div class="slide p-2 flex-shrink-0"><img src="GALLERY/1.jpeg" alt="Gallery image 1" class="rounded-lg w-full h-full object-cover"></div>
+                        <div class="slide p-2 flex-shrink-0"><img src="GALLERY/2.jpeg" alt="Gallery image 2" class="rounded-lg w-full h-full object-cover"></div>
+                        <div class="slide p-2 flex-shrink-0"><img src="GALLERY/3.jpeg" alt="Gallery image 3" class="rounded-lg w-full h-full object-cover"></div>
+                        <div class="slide p-2 flex-shrink-0"><img src="GALLERY/5.jpeg" alt="Gallery image 5" class="rounded-lg w-full h-full object-cover"></div>
+                        <div class="slide p-2 flex-shrink-0"><img src="GALLERY/6.jpeg" alt="Gallery image 6" class="rounded-lg w-full h-full object-cover"></div>
+                        <div class="slide p-2 flex-shrink-0"><img src="GALLERY/7.jpeg" alt="Gallery image 7" class="rounded-lg w-full h-full object-cover"></div>
+                        <div class="slide p-2 flex-shrink-0"><img src="GALLERY/8.jpeg" alt="Gallery image 8" class="rounded-lg w-full h-full object-cover"></div>
+                        <div class="slide p-2 flex-shrink-0"><img src="GALLERY/9.jpeg" alt="Gallery image 9" class="rounded-lg w-full h-full object-cover"></div>
+                        
+                        <div class="slide p-2 flex-shrink-0"><img src="GALLERY/10.jpeg" alt="Gallery image 1" class="rounded-lg w-full h-full object-cover"></div>
+                        <div class="slide p-2 flex-shrink-0"><img src="GALLERY/12.jpeg" alt="Gallery image 2" class="rounded-lg w-full h-full object-cover"></div>
+                        <div class="slide p-2 flex-shrink-0"><img src="GALLERY/13.jpeg" alt="Gallery image 3" class="rounded-lg w-full h-full object-cover"></div>
+                        <div class="slide p-2 flex-shrink-0"><img src="GALLERY/14.jpeg" alt="Gallery image 4" class="rounded-lg w-full h-full object-cover"></div>
+                        <div class="slide p-2 flex-shrink-0"><img src="GALLERY/15.jpeg" alt="Gallery image 5" class="rounded-lg w-full h-full object-cover"></div>
+                        <div class="slide p-2 flex-shrink-0"><img src="GALLERY/16.jpeg" alt="Gallery image 6" class="rounded-lg w-full h-full object-cover"></div>
+                        <div class="slide p-2 flex-shrink-0"><img src="GALLERY/17.jpeg" alt="Gallery image 7" class="rounded-lg w-full h-full object-cover"></div>
+                        <div class="slide p-2 flex-shrink-0"><img src="GALLERY/11.jpeg" alt="Gallery image 8" class="rounded-lg w-full h-full object-cover"></div>
+                    </div>
+                </div>
+
+                <div class="mt-12">
+                    <a href="#" class="text-indigo-400 text-lg hover:text-indigo-300 transition-colors duration-300 font-semibold">
+                        Explore Our Gallery &rarr;
+                    </a>
                 </div>
             </div>
         </section>
