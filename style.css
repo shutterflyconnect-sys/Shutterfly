@@ -1,0 +1,87 @@
+
+        /* Custom font for headings */
+        .font-playfair {
+            font-family: 'Playfair Display', serif;
+        }
+        /* Custom font for body */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #111827; /* Fallback background */
+        }
+
+        /* Canvas for crystal background */
+        #crystal-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1; /* Place it behind all content */
+        }
+
+        /* Style for the modal overlay */
+        .modal-overlay {
+            transition: opacity 0.3s ease;
+        }
+        /* Animation for the modal content */
+        .modal-content {
+            transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+        }
+        /* Hide scrollbar when modal or overlay is open */
+        .body-no-scroll {
+            overflow: hidden;
+        }
+        
+        /* Cool text shadow for the main title */
+        .title-shadow {
+            text-shadow: 0px 4px 10px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Enhanced card hover/touch effect */
+        .photo-card {
+            transform-style: preserve-3d;
+            transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .photo-card:hover, .photo-card:focus-within {
+            transform: perspective(1000px) rotateY(5deg) scale(1.05);
+        }
+        
+        /* --- New Menu Styles --- */
+        /* Style for the hamburger icon lines */
+        #explore-btn .icon-line {
+            transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+            
+        }
+        /* Animation for hamburger to 'X' */
+        .menu-open .icon-line-1 {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+        .menu-open .icon-line-2 {
+            opacity: 0;
+        }
+        .menu-open .icon-line-3 {
+            transform: rotate(-45deg) translate(4px, -4px);
+            width: 1.5rem; /* 24px */
+        }
+
+        /* Styles for when the overlay is active */
+        #nav-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        /* Animation for overlay links */
+        #nav-overlay.active .nav-overlay-link {
+            transform: translateY(0);
+            opacity: 1;
+            transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1), opacity 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        /* Staggered delay for the links (made faster) */
+        #nav-overlay.active li:nth-child(1) .nav-overlay-link { transition-delay: 0.05s; }
+        #nav-overlay.active li:nth-child(2) .nav-overlay-link { transition-delay: 0.1s; }
+        #nav-overlay.active li:nth-child(3) .nav-overlay-link { transition-delay: 0.15s; }
+        #nav-overlay.active li:nth-child(4) .nav-overlay-link { transition-delay: 0.2s; }
+        #nav-overlay.active li:nth-child(5) .nav-overlay-link { transition-delay: 0.25s; }
+        #nav-overlay.active li:nth-child(6) .nav-overlay-link { transition-delay: 0.3s; }
+
